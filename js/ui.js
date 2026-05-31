@@ -252,8 +252,7 @@ class UIManager {
         // Dynamically resolve the default base URL matching utils.js
         let currentApiUrl = localStorage.getItem("epc_api_base_url");
         if (!currentApiUrl) {
-            const isAndroid = navigator.userAgent.toLowerCase().includes("android");
-            currentApiUrl = isAndroid ? "http://10.0.2.2:3000/api" : "http://localhost:3000/api";
+            currentApiUrl = "https://lanxangpowerengineering.onrender.com/api";
         }
 
         const showDemo = localStorage.getItem("epc_demo_mode") === "true";
@@ -290,7 +289,7 @@ class UIManager {
                     </div>
                     <div class="form-group mb-4 btn-full text-left">
                         <label class="form-label text-xs mb-1 block">API Server URL</label>
-                        <input type="text" id="login-api-url" class="form-input btn-full text-xs" placeholder="http://localhost:3000/api" value="${currentApiUrl}">
+                        <input type="text" id="login-api-url" class="form-input btn-full text-xs" placeholder="https://lanxangpowerengineering.onrender.com/api" value="${currentApiUrl}">
                     </div>
 
                     <button class="btn btn-primary btn-full mb-4" onclick="window.ui.handleDemoSignIn()">${window.t('sign_in_btn')}</button>

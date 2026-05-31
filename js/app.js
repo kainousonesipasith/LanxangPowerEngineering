@@ -298,8 +298,7 @@ class AppController {
     async verifyAPIConnection() {
         let baseUrl = localStorage.getItem("epc_api_base_url");
         if (!baseUrl) {
-            const isAndroid = navigator.userAgent.toLowerCase().includes("android");
-            baseUrl = isAndroid ? "http://192.168.100.131:3000/api" : "http://localhost:3000/api";
+            baseUrl = "https://lanxangpowerengineering.onrender.com/api";
         }
         
         console.log(`[EPC BOOT] Verifying connection to backend at: ${baseUrl}/health`);
