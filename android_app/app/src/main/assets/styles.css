@@ -1,0 +1,7 @@
+/**
+ * EPC Laos Project Control & Finance Monitoring App - Root CSS Import
+ * Integrates global layout systems and detailed component variables.
+ */
+
+@import url('./css/styles.css');
+@import url('./css/components.css');

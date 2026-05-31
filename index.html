@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EPC Laos Project Control & Finance Monitoring App. High-fidelity management systems for electrical construction, solar, substations, and transmission lines.">
+    <title>EPC Laos - Project Control & Finance Monitoring System</title>
+    
+    <!-- STYLESHEETS MODULES LINK -->
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+    <!-- FALLBACK ERROR / LOADING SCREEN -->
+    <div id="app-loading-fallback" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #0f172a; color: #f8fafc; z-index: 10000; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: 'Inter', system-ui, sans-serif; padding: 20px; text-align: center;">
+        <div style="font-size: 48px; margin-bottom: 16px;">⏳</div>
+        <h2 style="margin: 0 0 8px 0; font-size: 20px; font-weight: 700; color: #f8fafc;">Laos EPC System Loading</h2>
+        <p id="app-loading-status" style="margin: 0; font-size: 13px; color: #94a3b8; line-height: 1.5; max-width: 320px;">
+            App loading failed. Please check Logcat.
+        </p>
+    </div>
+
+    <!-- MAIN APP STRUCTURE CONTAINER -->
+    <main id="app-root-frame">
+        
+        <!-- 1. LEFT SIDEBAR NAVIGATION PANEL -->
+        <aside class="sidebar-panel" id="app-sidebar-panel">
+            <div class="sidebar-brand-block" style="padding: 20px 16px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                <h1 class="sidebar-company-title" style="font-size: 15px; font-weight: 700; color: var(--color-text-white); margin-bottom: 4px; letter-spacing: 0.5px;">Project Control System</h1>
+                <span class="sidebar-company-subtitle" style="font-size: 9px; color: var(--color-text-light); font-weight: 500; text-transform: uppercase; display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">LANXANG POWER ENGINEERING SOLE CO., LTD</span>
+            </div>
+            
+            <nav class="sidebar-navigation">
+                <a href="#" class="sidebar-nav-link active" data-tab="dashboard" id="nav-link-dashboard">
+                    <span class="sidebar-nav-icon">▤</span>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="sidebar-nav-link" data-tab="projects" id="nav-link-projects">
+                    <span class="sidebar-nav-icon">▤</span>
+                    <span>EPC Projects Portfolio</span>
+                </a>
+                <a href="#" class="sidebar-nav-link" data-tab="weekly_reports" id="nav-link-weekly">
+                    <span class="sidebar-nav-icon">▤</span>
+                    <span>Weekly Site Reports</span>
+                </a>
+                <a href="#" class="sidebar-nav-link" data-tab="tasks" id="nav-link-tasks">
+                    <span class="sidebar-nav-icon">✓</span>
+                    <span>Tasks & Milestones</span>
+                </a>
+                <a href="#" class="sidebar-nav-link" data-tab="finance" id="nav-link-finance">
+                    <span class="sidebar-nav-icon">$</span>
+                    <span>Finance Ledger</span>
+                </a>
+                <a href="#" class="sidebar-nav-link" data-tab="payment_requests" id="nav-link-payments">
+                    <span class="sidebar-nav-icon">$</span>
+                    <span>Payment Requests</span>
+                </a>
+                <a href="#" class="sidebar-nav-link" data-tab="procurement" id="nav-link-procurement">
+                    <span class="sidebar-nav-icon">▤</span>
+                    <span>Procurement</span>
+                </a>
+                <a href="#" class="sidebar-nav-link" data-tab="allowance_bonus" id="nav-link-allowances">
+                    <span class="sidebar-nav-icon">+</span>
+                    <span>HR Allowance & Claims</span>
+                </a>
+                <a href="#" class="sidebar-nav-link" data-tab="announcements" id="nav-link-announcements">
+                    <span class="sidebar-nav-icon">📢</span>
+                    <span>Corporate Bulletins</span>
+                </a>
+                <a href="#" class="sidebar-nav-link" data-tab="documents" id="nav-link-documents">
+                    <span class="sidebar-nav-icon">▤</span>
+                    <span>Document Vault</span>
+                </a>
+                <a href="#" class="sidebar-nav-link" data-tab="reports" id="nav-link-reports">
+                    <span class="sidebar-nav-icon">▤</span>
+                    <span>Export Reports</span>
+                </a>
+                <a href="#" class="sidebar-nav-link" data-tab="users" id="nav-link-users">
+                    <span class="sidebar-nav-icon">👤</span>
+                    <span>Personnel Profiles</span>
+                </a>
+                <a href="#" class="sidebar-nav-link" data-tab="settings" id="nav-link-settings">
+                    <span class="sidebar-nav-icon">⚙</span>
+                    <span>System Settings</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- 2. RIGHT CONTENT VIEWPORT FRAME -->
+        <section class="main-viewport">
+            
+            <header class="header-bar">
+                <div class="header-title-block" style="display: flex; align-items: center; gap: 12px;">
+                    <h2 id="header-title">Executive Dashboard</h2>
+                </div>
+                
+                <div class="header-profile-block">
+                    <!-- Dynamic User Account details -->
+                    <div id="user-profile-info" class="user-profile-info">
+                        <!-- Filled by app.js -->
+                    </div>
+                </div>
+            </header>
+
+            <!-- CORE RENDERING VIEWPORT PANEL -->
+            <div id="main-content-viewport" class="content-scroller">
+                <!-- Dynamic Content views injected here by ui.js renderers -->
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- 3. CENTRAL FORMS DIALOG OVERLAY (MODAL) -->
+    <div id="modal-backdrop-overlay" class="modal-backdrop">
+        <article class="modal-content-panel">
+            <header class="modal-header">
+                <h3 id="modal-title-header">Create Project Log</h3>
+                <button id="modal-close-btn" class="toast-close-btn" aria-label="Close dialog">&times;</button>
+            </header>
+            <section class="modal-body" id="modal-body-form-container">
+                <!-- Form controls rendered dynamically -->
+            </section>
+            <footer class="modal-footer">
+                <button class="btn btn-secondary btn-sm" onclick="window.ui.closeModal()" id="modal-cancel-btn">Cancel</button>
+                <button class="btn btn-primary btn-sm" id="modal-submit-action-btn">Save Changes</button>
+            </footer>
+        </article>
+    </div>
+
+    <!-- 4. FLOATING TOAST NOTIFICATION CONTAINER -->
+    <div id="toast-container"></div>
+
+    <!-- PERSISTENT SCRIPTS CONTROLLERS -->
+    <script src="./js/i18n.js"></script>
+    <script src="./js/db.js"></script>
+    <script src="./js/auth.js"></script>
+    <script src="./js/utils.js"></script>
+    <script src="./js/ui.js"></script>
+    <script src="./js/app.js"></script>
+
+</body>
+</html>
