@@ -7,9 +7,7 @@ class UtilsService {
     async apiCall(endpoint, options = {}) {
         let baseUrl = localStorage.getItem("epc_api_base_url");
         if (!baseUrl) {
-            const isAndroid = navigator.userAgent.toLowerCase().includes("android");
-            // Connect to local developer PC IP for testing
-            baseUrl = isAndroid ? "http://192.168.100.131:3000/api" : "http://localhost:3000/api";
+            baseUrl = "https://lanxangpowerengineering.onrender.com/api";
         }
         
         const url = `${baseUrl}${endpoint}`;
